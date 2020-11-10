@@ -36,3 +36,8 @@ class GraphView(View):
     def post(request):
         _ = request.POST.get('somebody')
         return redirect('/main')
+
+class TryView(View):
+    @staticmethod
+    def get(request):
+        return render(request, '<h2>I learnt to use commits</h2>')
