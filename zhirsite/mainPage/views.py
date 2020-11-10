@@ -1,6 +1,5 @@
 from django.views import View
 from django.shortcuts import render, redirect
-
 from .models import Measurements
 
 
@@ -40,4 +39,4 @@ class GraphView(View):
 class TryView(View):
     @staticmethod
     def get(request):
-        return render(request, '<h2>I learnt to use commits</h2>')
+        return render(request, 'mainPage/try.html')
