@@ -40,7 +40,7 @@ class GraphView(View):
 class TryView(View):
     @staticmethod
     def get(request, ):
-        id = request.GET.get("id", 1)
+        id = request.GET.get("id", 112)
         context = {
             "id": id
         }
