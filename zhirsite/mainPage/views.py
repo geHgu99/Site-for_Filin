@@ -36,7 +36,12 @@ class GraphView(View):
         _ = request.POST.get('somebody')
         return redirect('/main')
 
+
 class TryView(View):
     @staticmethod
-    def get(request):
-        return render(request, 'mainPage/try.html')
+    def get(request, ):
+        id = request.GET.get("id", 1)
+        context = {
+            "id": id
+        }
+        return render(request, 'mainPage/try.html', context=context)
