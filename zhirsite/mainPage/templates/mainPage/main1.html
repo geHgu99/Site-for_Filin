@@ -1,0 +1,46 @@
+{% extends 'mainHome/base.html' %}
+{% block head %}
+    <head>
+        <meta charset="utf-8">
+        <title>Форма ввода в HTML5</title>
+    </head>
+{% endblock %}
+{% block page %}
+    <form>
+        <p>
+            <label for="firstname">Имя: </label>
+            <input type="text" id="firstname" value="Чел" name="firstname"/>
+        </p>
+        <div class="form-group">
+            <label for="inputDate">Введите дату:</label>
+            <input type="date" defaultDate="01.01.2018" class="form-control">
+       </div>
+        <p>
+            <button type="submit">Отправить</button>
+        </p>
+    </form>
+{% endblock %}
+
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Форма ввода в HTML5</title>
+    </head>
+    <body>
+        <form>
+            <p>
+                <label for="firstname">Имя: </label>
+                <input type="text" id="firstname" value="Чел" name="firstname"/>
+            </p>
+            <div class="form-group">
+                <label for="inputDate">Введите дату:</label>
+                <input type="date" defaultDate="01.01.2018" class="form-control">
+           </div>
+            <p>
+                <button type="submit">Отправить</button>
+            </p>
+        </form>
+    </body>
+-->

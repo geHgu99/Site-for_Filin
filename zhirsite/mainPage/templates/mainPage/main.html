@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Форма ввода в HTML5</title>
+    </head>
+    <body>
+        <form action="" method="post">{% csrf_token %}
+            <p>
+                <label for="firstname">Введите вес: </label>
+                <input type="text" value="50" name="current_weight"/>
+            </p>
+            <div class="form-group">
+                <label for="inputDate">Введите дату:</label>
+                <input type="date" defaultDate="01.01.2018" class="form-control" name="current_data">
+           </div>
+            <p>
+                <button type="submit" name="somebody">Отправить</button>
+            </p>
+        </form>
+    </body>
