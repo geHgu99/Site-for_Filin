@@ -1,6 +1,8 @@
 from django.views import View
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Measurements
+from .forms import UserForm
 
 
 class WelcomeView(View):
@@ -39,9 +41,29 @@ class GraphView(View):
 
 class TryView(View):
     @staticmethod
-    def get(request, ):
+    def get(request):
         id = request.GET.get("id", 112)
         context = {
             "id": id
         }
         return render(request, 'mainPage/try.html', context=context)
+
+
+class FormView(View):
+    @staticmethod
+    def get(request):
+        userform = UserForm()
+        data = {
+            "form": userform
+        }
+        return render(request, 'mainPage/index.html', context=data)
+
+    @staticmethod
+    def post(request):
+        userform = UserForm(request.POST)
+        if userform.is_valid():
+            name = userform.cleaned_data["name"]
+            measure = userform.cleaned_data["measure"]
+            return HttpResponse("<h2>Hello, {0}</h2>".format(name))
+        else:
+            return HttpResponse("Invalid data")
