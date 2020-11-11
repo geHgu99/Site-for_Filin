@@ -9,6 +9,19 @@ class WelcomeView(View):
     @staticmethod
     def get(request):
         return render(
+            request, 'mainPage/welcome.html'
+        )
+
+    @staticmethod
+    def post(request):
+        answer = request.POST.get('questionary_button')
+        return redirect(answer)
+
+
+class MainView(View):
+    @staticmethod
+    def get(request):
+        return render(
             request, 'mainPage/main.html'
         )
 
@@ -30,7 +43,7 @@ class GraphView(View):
         db = Measurements.measure.all()
         context = {
             'base': db,
-            'date': 12
+            'number': 12
         }
         return render(request, 'mainPage/graph.html', context=context)
 
@@ -43,9 +56,9 @@ class GraphView(View):
 class TryView(View):
     @staticmethod
     def get(request):
-        id = request.GET.get("id", 112)
+        id_data = request.GET.get("id", 112)
         context = {
-            "id": id
+            "id": id_data
         }
         return render(request, 'mainPage/try.html', context=context)
 
@@ -64,10 +77,10 @@ class FormView(View):
         userform = UserForm(request.POST)
         if userform.is_valid():
             name = userform.cleaned_data["name"]
-            measure = userform.cleaned_data["measure"]
             return HttpResponse("<h2>Hello, {0}</h2>".format(name))
         else:
             return HttpResponse("Invalid data")
+
 
 class GraphSndView(View):
     @staticmethod
@@ -75,7 +88,7 @@ class GraphSndView(View):
         db = Measurements.measure.all()
         context = {
             'base': db,
-            'date': 12
+            'number': 12
         }
         return render(request, 'mainPage/graph2.html', context=context)
 

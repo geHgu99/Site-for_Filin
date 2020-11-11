@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Лучший сайт на свете</title>
+    </head>
+    <body>
+        <form id="quest" action="" method="post">{% csrf_token %}
+            <p>
+                <button name="questionary_button"
+                        value="/main"
+                        form="quest"
+                        type="submit">
+                        Ввести новые данные
+                </button>
+            </p>
+            <p>
+                <button name="questionary_button"
+                        form="quest"
+                        value="/graph"
+                        type="submit">
+                        Увидеть график изменений
+                </button>
+            </p>
+            <p>
+                <button name="questionary_button"
+                        form="quest"
+                        value="/graph2"
+                        type="submit">
+                        Увидеть паленый график изменений
+                </button>
+            </p>
+            <p>
+                <button name="questionary_button"
+                        form="quest"
+                        value="/try"
+                        type="submit">
+                        Пример с картинкой
+                </button>
+            </p>
+        </form>
+    </body>
+</html>

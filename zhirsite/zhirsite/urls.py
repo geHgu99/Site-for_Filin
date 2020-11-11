@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from mainPage.views import WelcomeView, GraphView, TryView, FormView, GraphSndView
+from mainPage.views import WelcomeView, MainView, GraphView, TryView, FormView, GraphSndView
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('main/', WelcomeView.as_view()),
+    path('', WelcomeView.as_view()),
+    path('main/', MainView.as_view()),
     path('admin/', admin.site.urls),
     path('graph/', GraphView.as_view()),
     path('graph2/', GraphSndView.as_view()),
