@@ -13,7 +13,7 @@ class UserForm(forms.Form):
     data = forms.DateField(label="Датка",
                            widget=forms.DateInput,
                            initial="2000-10-25",
-                           help_text="Введите нужную дату"
+                           help_text="Введите нужную дату",
                            )
     comment = forms.CharField(label="Комментарий",
                               widget=forms.Textarea,

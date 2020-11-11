@@ -29,7 +29,8 @@ class GraphView(View):
     def get(request):
         db = Measurements.measure.all()
         context = {
-            'base': db
+            'base': db,
+            'date': 12
         }
         return render(request, 'mainPage/graph.html', context=context)
 
@@ -67,3 +68,18 @@ class FormView(View):
             return HttpResponse("<h2>Hello, {0}</h2>".format(name))
         else:
             return HttpResponse("Invalid data")
+
+class GraphSndView(View):
+    @staticmethod
+    def get(request):
+        db = Measurements.measure.all()
+        context = {
+            'base': db,
+            'date': 12
+        }
+        return render(request, 'mainPage/graph2.html', context=context)
+
+    @staticmethod
+    def post(request):
+        _ = request.POST.get('somebody')
+        return redirect('/main')

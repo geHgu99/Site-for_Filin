@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
         <meta charset="utf-8">
@@ -18,7 +19,6 @@
                     <td>{{ i.data }}</td>
                 {% endfor %}
             </tr>
-
         </table>
         {% endif %}
         <form action="" method="post">{% csrf_token %}
@@ -26,26 +26,5 @@
                 <button type="submit">Вернуться к вводу данных</button>
             </p>
         </form>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-    <script type="text/javascript">
-    const base = document.base
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(base);
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
     </body>
 </html>

@@ -7,12 +7,12 @@
     <body>
         <form action="" method="post">{% csrf_token %}
             <p>
-                <label for="firstname">Введите вес: </label>
-                <input type="text" value="50" name="current_weight"/>
+                <label for="name_id">Введите вес: </label>
+                <input type="text" id="name_id" value="50" name="current_weight"/>
             </p>
             <div class="form-group">
-                <label for="inputDate">Введите дату:</label>
-                <input type="date" value="2020-01-01" class="form-control" name="current_data">
+                <label for="date_id">Введите дату:</label>
+                <input type="date" id="date_id" value="2020-01-01" class="form-control" name="current_data">
            </div>
             <p>
                 <button type="submit" name="somebody">Отправить</button>
