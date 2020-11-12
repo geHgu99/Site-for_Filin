@@ -87,7 +87,7 @@ class GraphSndView(View):
     def get(request):
         db = Measurements.measure.all()
         context = {
-            'base': db,
+            'base': list(db.values()),
             'number': 12
         }
         return render(request, 'mainPage/graph2.html', context=context)
