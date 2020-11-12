@@ -1,16 +1,14 @@
 function drawChart() {
     // Define the chart to be drawn.
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Data');
+    data.addColumn('date', 'Data');
     data.addColumn('number', 'measure');
-    alert("ZHOPA");
-    {% for i in base %}
-        data.addRows([
-           [{{ i.data }}, {{ i.weight }}],
-           [{{ i.data }}, {{ i.weight }}],
-        ]);
-    {% endfor %}
-
+    var base = JSON.parse(document.getElementById('county-data').textContent);
+    for (i in base) {
+        data.addRow(
+           [new Date(Date.UTC(i.data)), i.weight],
+        );
+    }
 
 
 
@@ -18,7 +16,7 @@ function drawChart() {
     var options = {'title':'График твоей жиробазности', 'width':550, 'height':400};
 
     // Instantiate and draw the chart.
-    var chart = new google.visualization.PieChart(document.getElementById ('container'));
+    var chart = new google.visualization.LineChart(document.getElementById ('container'));
     chart.draw(data, options);
 }
 google.charts.setOnLoadCallback(drawChart);
